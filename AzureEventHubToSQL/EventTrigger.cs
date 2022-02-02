@@ -27,10 +27,9 @@ namespace AzureEventHubToSQL
             {
                 try
                 {
-                    string messageBody = Encoding.UTF8.GetString(eventData.Body);
-                    byte[] byteArray = Encoding.ASCII.GetBytes(messageBody);
-                    var streamData = new MemoryStream(byteArray);
-                    var results = orchrestatorService.Run(streamData);
+                    string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+
+                    var results = orchrestatorService.Run(messageBody);
                     log.LogInformation($"EnqueuedTimeUtc={eventData.SystemProperties.EnqueuedTimeUtc}");
                     await Task.Yield();
                 }
