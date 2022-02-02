@@ -25,9 +25,9 @@
 
 |FileName|Description|
 |:----|:----|
-|43EFE991E8614CFB9EDECF1B0FDED37A.json| **Upload File** Parse csv file --> Write Batched Files To Storage|
+|43EFE991E8614CFB9EDECF1B0FDED37A.json| **Upload File** Parse CSV file --> Write Batched Files To Storage|
 |43EFE991E8614CFB9EDECF1B0FDED37D.json| **Blob Trigger** Read Parsed CSV files --> Converts To JSON --> Sends To Event Hub|
-|43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub, --> Writes to a NoSQL DB|
+|43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a NoSQL DB|
 |43EFE991E8614CFB9EDECF1B0FDED37C.json| **Search** NoSQL DB for ingested records|
 
 ## Upload Configuration to Storage
