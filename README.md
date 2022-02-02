@@ -37,8 +37,6 @@ Go to created storage Account.. Click On "Blob Service"
 Click on **"Container"**
 ![image](https://user-images.githubusercontent.com/15838780/147958201-71df0f21-e4e8-46c0-93be-728f1dbc2a43.png)
 ![image](https://user-images.githubusercontent.com/15838780/147963170-1a2f2a64-7ba2-44ce-9f5d-30d490529711.png)
-Upload the selected files from the "**Config**" folder in your project
-![image](https://user-images.githubusercontent.com/15838780/147974980-1a86ebd3-4ac1-4122-892a-519171ff9288.png)
 
 
 ## Upload CSV File
