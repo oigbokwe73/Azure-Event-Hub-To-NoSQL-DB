@@ -8,6 +8,7 @@ using Xenhey.BPM.Core.Implementation;
 using Xenhey.BPM.Core;
 using System.Collections.Specialized;
 using System.Linq;
+using System.IO;
 
 namespace AzureEventHubToSQL
 {
@@ -19,10 +20,11 @@ namespace AzureEventHubToSQL
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
             HttpRequest req, ILogger log)
         {
-            _req = req;
+             _req = req;
 
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var results = orchrestatorService.Run(_req.Body);
+            string requestBody = await new StreamReader(_req.Body).ReadToEndAsync();
+            var results = orchrestatorService.Run(requestBody);
             return resultSet(results);
 
         }
