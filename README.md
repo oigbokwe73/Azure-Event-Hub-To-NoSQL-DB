@@ -1,8 +1,8 @@
-# SFTP-Using-ACI-EventTrigger-To-Azure-SQL
+# Data Ingestion into Azure EventHub to NoSQL DB.
 
 ## Architecture Diagram
 
-![image](https://user-images.githubusercontent.com/15838780/152089209-c946f493-ba5c-4b61-a21c-fe3d4ddec85a.png)
+![image](https://user-images.githubusercontent.com/15838780/152089372-b0b851eb-8da5-4e02-81f1-f8f784028940.png)
 
 
 ## Appplication Setting 
