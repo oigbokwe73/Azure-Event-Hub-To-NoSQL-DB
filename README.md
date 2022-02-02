@@ -25,10 +25,10 @@
 
 |FileName|Description|
 |:----|:----|
-|43EFE991E8614CFB9EDECF1B0FDED37A.json| Parse csv file, and write to storage|
-|43EFE991E8614CFB9EDECF1B0FDED37B.json| Read JSON Array from Event Hub and write to NoSQL DB|
+|43EFE991E8614CFB9EDECF1B0FDED37A.json| **Upload File** Parse csv file, and write to storage|
+|43EFE991E8614CFB9EDECF1B0FDED37D.json| **Blob Trigger** Read the parsed CSV files. Convert to JSON. Send to Event Hub|
+|43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub and write to NoSQL DB|
 |43EFE991E8614CFB9EDECF1B0FDED37C.json| Search NoSQL DB for ingested records|
-|43EFE991E8614CFB9EDECF1B0FDED37B.json| Timer Trigger to Copy the file(s) from Azure File Share to Blob Container|
 
 ## Upload Configuration to Storage
 Go to created storage Account.. Click On "Blob Service" 
