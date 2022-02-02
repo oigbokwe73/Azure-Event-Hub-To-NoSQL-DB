@@ -27,7 +27,7 @@
 |:----|:----|
 |43EFE991E8614CFB9EDECF1B0FDED37A.json| Parse csv file, and write to storage|
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| Read JSON Array from Event Hub and write to NoSQL DB|
-|3FB620B0E0FD4E8F93C9E4D839D00E1D.json| Event Trigger to process all the batched files into a Azure SQL Database|
+|43EFE991E8614CFB9EDECF1B0FDED37C.json| Search NoSQL DB for ingested records|
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| Timer Trigger to Copy the file(s) from Azure File Share to Blob Container|
 
 ## Upload Configuration to Storage
