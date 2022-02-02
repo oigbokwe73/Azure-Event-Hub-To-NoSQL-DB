@@ -25,8 +25,8 @@
 
 |FileName|Description|
 |:----|:----|
-|3FB620B0E0FD4E8F93C9E4D839D00E1E.json| Search Azure DB for results|
-|3FB620B0E0FD4E8F93C9E4D839D00E1C.json| Event Trigger to create the batched files|
+|43EFE991E8614CFB9EDECF1B0FDED37A.json| Parse csv file, and write to storage|
+|43EFE991E8614CFB9EDECF1B0FDED37B.json| Read JSON Array from Event Hub and write to NoSQL DB|
 |3FB620B0E0FD4E8F93C9E4D839D00E1D.json| Event Trigger to process all the batched files into a Azure SQL Database|
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| Timer Trigger to Copy the file(s) from Azure File Share to Blob Container|
 
@@ -49,6 +49,7 @@ Click on **"Container"**
 |FileName||OPTIONAL:This is required for additonal XSL transformation |
 |TableName|<AZURE TABLE NAME>| REQUIRED Create table add records|
 |StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
+|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
 
 
 
@@ -60,8 +61,8 @@ Click on **"Container"**
 |PartitionKey|<PROPERTY NAME >|OPTIONAL : Identity the  Field/Key in the JSON payload as a Partition Key|
 |QueryField|<SEARCH PROPERTY NAME>|Provide the search property name to be used in the search
 |DefaultResult| <CUSTOM MESSAGE> | OPTIONAL :  No  results return then a default message
-|TableName|<AZURE TABLE NAME>| Create table add records
-|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
+|TableName|<AZURE TABLE NAME>| REQUIRED : Create a Table |
+|Container|<CONTAINER NAME>|  REQUIRED : Create a container name eg "csvprocessed".|
   
   
   ## Products
