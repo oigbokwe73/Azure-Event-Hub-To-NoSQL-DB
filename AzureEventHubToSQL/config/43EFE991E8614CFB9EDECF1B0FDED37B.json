@@ -1,5 +1,5 @@
 ﻿{
-  "Id": "UploadFileProcess",
+  "Id": "EventHubTrigger",
   "LineOfBusinessProcessData": [
     {
       "Key": "object",
@@ -28,7 +28,7 @@
         },
         {
           "Key": "TableName",
-          "Value": "training20220124"
+          "Value": "training20220202"
         }
       ]
     }

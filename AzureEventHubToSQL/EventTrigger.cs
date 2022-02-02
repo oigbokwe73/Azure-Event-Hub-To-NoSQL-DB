@@ -17,10 +17,10 @@ namespace AzureEventHubToSQL
     {
         private NameValueCollection nvc = new NameValueCollection();
 
-        [FunctionName("EventHubToSQL")]
-        public async Task Run([EventHubTrigger("training202201", Connection = "EventHubConnectionAppSetting")] EventData[] events, ILogger log)
+        [FunctionName("EventHubToNoSQLTrigger")]
+        public async Task Run([EventHubTrigger("training20220202", Connection = "EventHubConnectionAppSetting")] EventData[] events, ILogger log)
         {
-
+            nvc.Add("x-api-key", "43EFE991E8614CFB9EDECF1B0FDED37B");
             var exceptions = new List<Exception>();
 
             foreach (EventData eventData in events)
@@ -53,7 +53,6 @@ namespace AzureEventHubToSQL
         {
             get
             {
-                nvc.Add("x-api-key", "0F1AE83D158143AC84F6150F62B29712");
                 return new ManagedOrchestratorService(nvc);
             }
         }

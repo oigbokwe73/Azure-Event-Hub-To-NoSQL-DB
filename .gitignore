@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/AzureEventHubToSQL/.vscode/tasks.json
+/AzureEventHubToSQL/.vscode/settings.json
+/AzureEventHubToSQL/.vscode/launch.json
+/AzureEventHubToSQL/.vscode/extensions.json

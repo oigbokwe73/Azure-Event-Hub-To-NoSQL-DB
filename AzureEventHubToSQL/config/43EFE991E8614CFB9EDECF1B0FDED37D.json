@@ -1,5 +1,5 @@
 ﻿{
-  "Id": "EventHubTrigger",
+  "Id": "BlobTrigger",
   "LineOfBusinessProcessData": [
     {
       "Key": "object",
@@ -83,8 +83,12 @@
           "Value": "yes"
         },
         {
+          "Key": "EventHubName",
+          "Value": "training20220202"
+        },
+        {
           "Key": "EventHubConnectionString",
-          "Value": "training202202"
+          "Value": "EventHubConnectionAppSetting"
         }
       ]
     }
