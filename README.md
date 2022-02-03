@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/15838780/152089372-b0b851eb-8da5-4e02-81f1-f8f784028940.png)
 
 ## Training video
-[Training Video](https://user-images.githubusercontent.com/15838780/152278127-7a5dee04-6f44-4ee3-81c2-db4259c4e845.png)
+Link[image](https://user-images.githubusercontent.com/15838780/152278276-21241517-acb8-44ae-98b4-69873be121da.png)
 
 
 ## Appplication Setting 
