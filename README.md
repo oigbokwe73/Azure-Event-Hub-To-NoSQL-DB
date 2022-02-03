@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/15838780/152089372-b0b851eb-8da5-4e02-81f1-f8f784028940.png)
 
 ## Training video
-Link[image](https://user-images.githubusercontent.com/15838780/152278276-21241517-acb8-44ae-98b4-69873be121da.png)
+https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_device_id=CI3O9y4s6k53rNaBj6DzK0![image](https://user-images.githubusercontent.com/15838780/152278381-1d0a18e5-32df-4fb9-81e8-76ec7575d106.png)
 
 
 ## Appplication Setting 
