@@ -1,36 +1,40 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Azure.EventHubs;
+using Azure.Messaging.EventHubs;
+using Microsoft.Azure.Documents.SystemFunctions;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Xenhey.BPM.Core;
-using Xenhey.BPM.Core.Implementation;
+using Xenhey.BPM.Core.Net6;
+using Xenhey.BPM.Core.Net6.Implementation;
 
-namespace AzureEventHubToSQL
+namespace AzureEventHubToNoSQLDB
 {
-    public class EventHubToSQL
+    public  class EventBusTrigger
     {
-        private NameValueCollection nvc = new NameValueCollection();
 
-        [FunctionName("EventHubToNoSQLTrigger")]
-        public async Task Run([EventHubTrigger("training20220202", Connection = "EventHubConnectionAppSetting")] EventData[] events, ILogger log)
+        private NameValueCollection nvc = new NameValueCollection();
+        [FunctionName("EventBusTrigger")]
+        public  async Task Run([EventHubTrigger("training20230422", Connection = "EventHubConnectionAppSetting")] EventData[] events, ILogger log)
         {
             nvc.Add("x-api-key", "43EFE991E8614CFB9EDECF1B0FDED37B");
             var exceptions = new List<Exception>();
+
 
             foreach (EventData eventData in events)
             {
                 try
                 {
-                    string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+                    // Replace these two lines with your processing logic.
+
+
+                    string messageBody = eventData.EventBody.ToString();
 
                     var results = orchrestatorService.Run(messageBody);
-                    log.LogInformation($"EnqueuedTimeUtc={eventData.SystemProperties.EnqueuedTimeUtc}");
+                    log.LogInformation(messageBody);
                     await Task.Yield();
                 }
                 catch (Exception e)
@@ -49,7 +53,8 @@ namespace AzureEventHubToSQL
             if (exceptions.Count == 1)
                 throw exceptions.Single();
         }
-        private IOrchrestatorService orchrestatorService
+
+        private IOrchestrationService orchrestatorService
         {
             get
             {

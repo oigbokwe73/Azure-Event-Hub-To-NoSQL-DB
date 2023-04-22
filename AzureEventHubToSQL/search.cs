@@ -4,11 +4,11 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Xenhey.BPM.Core.Implementation;
-using Xenhey.BPM.Core;
 using System.Collections.Specialized;
 using System.Linq;
 using System.IO;
+using Xenhey.BPM.Core.Net6;
+using Xenhey.BPM.Core.Net6.Implementation;
 
 namespace AzureEventHubToSQL
 {
@@ -32,12 +32,12 @@ namespace AzureEventHubToSQL
         private ActionResult resultSet(string reponsePayload)
         {
             var returnContent = new ContentResult();
-            var mediaSelectedtype = _req.Headers.Where(x => x.Key.Equals("Content-Type")).FirstOrDefault();
+            var mediaSelectedtype = nvc.Get("Content-Type");
             returnContent.Content = reponsePayload;
-            returnContent.ContentType = mediaSelectedtype.Value;
+            returnContent.ContentType = mediaSelectedtype;
             return returnContent;
         }
-        private IOrchrestatorService orchrestatorService
+        private IOrchestrationService orchrestatorService
         {
             get
             {

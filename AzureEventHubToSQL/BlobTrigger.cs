@@ -4,8 +4,8 @@ using System.IO;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Xenhey.BPM.Core;
-using Xenhey.BPM.Core.Implementation;
+using Xenhey.BPM.Core.Net6;
+using Xenhey.BPM.Core.Net6.Implementation;
 
 namespace AzureEventHubToNoSQLDB
 {
@@ -18,7 +18,7 @@ namespace AzureEventHubToNoSQLDB
             log.LogInformation("C# blob trigger function processed a request.");
             NameValueCollection nvc = new NameValueCollection();
             nvc.Add(ApiKeyName, "43EFE991E8614CFB9EDECF1B0FDED37D");
-            IOrchrestatorService orchrestatorService = new ManagedOrchestratorService(nvc);
+            IOrchestrationService orchrestatorService = new ManagedOrchestratorService(nvc);
             var processFiles = orchrestatorService.Run(myBlob);
         }
     }
