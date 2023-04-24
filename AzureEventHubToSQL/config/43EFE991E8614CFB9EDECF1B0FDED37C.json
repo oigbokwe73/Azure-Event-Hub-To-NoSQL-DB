@@ -3,14 +3,14 @@
   "LineOfBusinessProcessData": [
     {
       "Key": "object",
-      "Type": "Xenhey.BPM.Core.Processes.ProcessData"
+      "Type": "Xenhey.BPM.Core.Net6.Processes.ProcessData"
     }
   ],
   "Type": "",
   "DataFlowProcess": [
     {
       "Key": "Azure_Table_Storage",
-      "Type": "Xenhey.BPM.Core.Processes.AzureTableStorageProcess",
+      "Type": "Xenhey.BPM.Core.Net6.Processes.AzureTableStorageProcess",
       "Async": "false",
       "IsEnable": "true",
       "DataFlowProcessParameters": [
@@ -28,7 +28,7 @@
         },
         {
           "Key": "TableName",
-          "Value": "training20220202"
+          "Value": "training20230422"
         },
         {
           "Key": "DefaultResult",

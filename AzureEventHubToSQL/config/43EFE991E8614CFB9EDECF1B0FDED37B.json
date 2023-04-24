@@ -1,36 +1,112 @@
 ﻿{
-  "Id": "EventHubTrigger",
-  "LineOfBusinessProcessData": [
-    {
-      "Key": "object",
-      "Type": "Xenhey.BPM.Core.Processes.ProcessData"
-    }
-  ],
-  "Type": "",
-  "DataFlowProcess": [
-    {
-      "Key": "Write-To-Storage",
-      "Type": "Xenhey.BPM.Core.Processes.AzureTableStorageProcess",
-      "Async": "false",
-      "IsEnable": "true",
-      "DataFlowProcessParameters": [
-        {
-          "Key": "CreateRecordForAzureTableBatch",
-          "Value": "yes"
-        },
-        {
-          "Key": "BatchSize",
-          "Value": "100"
-        },
-        {
-          "Key": "StorageAccount",
-          "Value": "AzureWebJobsStorage"
-        },
-        {
-          "Key": "TableName",
-          "Value": "training20220202"
-        }
-      ]
-    }
-  ]
+	"Id": "EventHubTrigger",
+	"LineOfBusinessProcessData": [
+		{
+			"Key": "object",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.ProcessData"
+		}
+	],
+	"Type": "",
+	"DataFlowProcess": [
+		{
+			"Key": "ConvertFromJsonToXml",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.MessageBuilderProcess",
+			"Async": "false",
+			"IsEnable": "true",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "ConvertJsonToXml",
+					"Value": "yes"
+				},
+				{
+					"Key": "RootElement",
+					"Value": "Football"
+				},
+				{
+					"Key": "messageformat",
+					"Value": "application/xml"
+				}
+			]
+		},
+		{
+			"Key": "WriteConvertedJsonToXml",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.BlobStorageProcess",
+			"Async": "false",
+			"IsEnable": "false",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "WriteToStorage",
+					"Value": "yes"
+				},
+				{
+					"Key": "BlobStorageConnectionString",
+					"Value": "AzureWebJobsStorage"
+				},
+				{
+					"Key": "container",
+					"Value": "eventhubmessages"
+				},
+				{
+					"Key": "folderName",
+					"Value": "xmlmessages"
+				},
+				{
+					"Key": "extension",
+					"Value": "xml"
+				},
+				{
+					"Key": "ContentType",
+					"Value": "application/xml"
+				}
+			]
+		},
+		{
+			"Key": "Write-To-Storage",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.AzureTableStorageProcess",
+			"Async": "false",
+			"IsEnable": "false",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "CreateRecordForAzureTableBatch",
+					"Value": "yes"
+				},
+				{
+					"Key": "BatchSize",
+					"Value": "100"
+				},
+				{
+					"Key": "StorageAccount",
+					"Value": "AzureWebJobsStorage"
+				},
+				{
+					"Key": "TableName",
+					"Value": "training20230422"
+				}
+			]
+		},
+		{
+			"Key": "ReceiveMessageFromServieBus",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.ConnectToDBProcess",
+			"Async": "false",
+			"IsEnable": "true",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "BulkInsertFromMessage",
+					"Value": "yes"
+				},
+				{
+					"Key": "DatabaseTableName",
+					"Value": "Football"
+				},
+				{
+					"Key": "ConnectionString",
+					"Value": "DataBaseConnection"
+				},
+				{
+					"Key": "datatable",
+					"Value": "Football"
+				}
+			]
+		}
+	]
 }

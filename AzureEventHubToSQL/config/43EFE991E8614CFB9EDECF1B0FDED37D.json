@@ -3,19 +3,19 @@
   "LineOfBusinessProcessData": [
     {
       "Key": "object",
-      "Type": "Xenhey.BPM.Core.Processes.ProcessData"
+      "Type": "Xenhey.BPM.Core.Net6.Processes.ProcessData"
     }
   ],
   "Type": "",
   "DataFlowProcess": [
     {
       "Key": "Read-Uploaded-File",
-      "Type": "Xenhey.BPM.Core.Processes.CSVProcess",
+      "Type": "Xenhey.BPM.Core.Net6.Processes.CSVProcess",
       "Async": "false",
       "IsEnable": "true",
       "DataFlowProcessParameters": [
         {
-          "Key": "ReadCsvAsStreamv2",
+          "Key": "GetRecordsFromCSV",
           "Value": "yes"
         },
         {
@@ -24,57 +24,41 @@
         }
       ]
     },
-    {
-      "Key": "TransformCsvPayload",
-      "Type": "Xenhey.BPM.Core.Processes.TransformationProcess",
+		{
+      "Key": "WriteMessageToStorageToBeProcessedByServiceBus",
+      "Type": "Xenhey.BPM.Core.Net6.Processes.BlobStorageProcess",
       "Async": "false",
       "IsEnable": "true",
       "DataFlowProcessParameters": [
         {
-          "Key": "messageformatin",
-          "Value": "application/json"
-        },
-        {
-          "Key": "StorageAccount",
-          "Value": "AzureWebJobsStorage"
-        },
-        {
-          "Key": "FolderName",
-          "Value": "config"
-        },
-        {
-          "Key": "FileName",
-          "Value": "FileTransformData.xsl"
-        },
-        {
-          "Key": "TransformPayload",
+          "Key": "WriteToStorage",
           "Value": "yes"
         },
         {
-          "Key": "messageformatout",
-          "Value": "application/json"
-        }
-      ]
-    },
-    {
-      "Key": "MessageBuilderProcess",
-      "Type": "Xenhey.BPM.Core.Processes.MessageBuilderProcess",
-      "Async": "false",
-      "IsEnable": "true",
-      "DataFlowProcessParameters": [
-        {
-          "Key": "BuildArrayMessageWithRootNode",
-          "Value": "Yes"
+          "Key": "BlobStorageConnectionString",
+          "Value": "AzureWebJobsStorage"
         },
         {
-          "Key": "RootName",
-          "Value": "Table"
+          "Key": "container",
+          "Value": "eventhubmessages"
+        },
+        {
+          "Key": "folderName",
+          "Value": "messages"
+        },
+        {
+          "Key": "extension",
+          "Value": "json"
+        },
+        {
+          "Key": "ContentType",
+          "Value": "application/json"
         }
       ]
     },
     {
       "Key": "SendMesagesToEventHub",
-      "Type": "Xenhey.BPM.Core.Processes.EventHubProcess",
+      "Type": "Xenhey.BPM.Core.Net6.Processes.EventHubProcess",
       "Async": "false",
       "IsEnable": "true",
       "DataFlowProcessParameters": [
@@ -84,7 +68,7 @@
         },
         {
           "Key": "EventHubName",
-          "Value": "training20220202"
+          "Value": "training20230422"
         },
         {
           "Key": "EventHubConnectionString",
