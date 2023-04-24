@@ -9,22 +9,58 @@
 	"Type": "",
 	"DataFlowProcess": [
 		{
-			"Key": "ConvertFromJsonToXml",
-			"Type": "Xenhey.BPM.Core.Net6.Processes.MessageBuilderProcess",
+			"Key": "WriteJsonPayloadToStorage",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.BlobStorageProcess",
 			"Async": "false",
-			"IsEnable": "true",
+			"IsEnable": "false",
 			"DataFlowProcessParameters": [
 				{
-					"Key": "ConvertJsonToXml",
+					"Key": "WriteToStorage",
 					"Value": "yes"
 				},
 				{
-					"Key": "RootElement",
-					"Value": "Football"
+					"Key": "BlobStorageConnectionString",
+					"Value": "AzureWebJobsStorage"
 				},
 				{
-					"Key": "messageformat",
-					"Value": "application/xml"
+					"Key": "container",
+					"Value": "eventhubmessages"
+				},
+				{
+					"Key": "folderName",
+					"Value": "jsonmessages"
+				},
+				{
+					"Key": "extension",
+					"Value": "json"
+				},
+				{
+					"Key": "ContentType",
+					"Value": "application/json"
+				}
+			]
+		},
+		{
+			"Key": "Write-To-Storage",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.AzureTableStorageProcess",
+			"Async": "false",
+			"IsEnable": "false",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "CreateRecordForAzureTableBatch",
+					"Value": "yes"
+				},
+				{
+					"Key": "BatchSize",
+					"Value": "100"
+				},
+				{
+					"Key": "StorageAccount",
+					"Value": "AzureWebJobsStorage"
+				},
+				{
+					"Key": "TableName",
+					"Value": "training20230422"
 				}
 			]
 		},
@@ -61,26 +97,22 @@
 			]
 		},
 		{
-			"Key": "Write-To-Storage",
-			"Type": "Xenhey.BPM.Core.Net6.Processes.AzureTableStorageProcess",
+			"Key": "ConvertFromJsonToXml",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.MessageBuilderProcess",
 			"Async": "false",
-			"IsEnable": "false",
+			"IsEnable": "true",
 			"DataFlowProcessParameters": [
 				{
-					"Key": "CreateRecordForAzureTableBatch",
+					"Key": "ConvertJsonToXml",
 					"Value": "yes"
 				},
 				{
-					"Key": "BatchSize",
-					"Value": "100"
+					"Key": "RootElement",
+					"Value": "Football"
 				},
 				{
-					"Key": "StorageAccount",
-					"Value": "AzureWebJobsStorage"
-				},
-				{
-					"Key": "TableName",
-					"Value": "training20230422"
+					"Key": "messageformat",
+					"Value": "application/xml"
 				}
 			]
 		},
