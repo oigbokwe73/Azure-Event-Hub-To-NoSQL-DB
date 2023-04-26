@@ -13,14 +13,14 @@ using Xenhey.BPM.Core.Net6.Implementation;
 
 namespace AzureEventHubToNoSQLDB
 {
-    public  class EventBusTrigger
+    public  class SqlEventBusTrigger
     {
 
         private NameValueCollection nvc = new NameValueCollection();
-        [FunctionName("EventBusTrigger")]
-        public  async Task Run([EventHubTrigger("training20230422", Connection = "EventHubConnectionAppSetting",ConsumerGroup = "training20230422")] EventData[] events, ILogger log)
+        [FunctionName("SqlEventBusTrigger")]
+        public  async Task Run([EventHubTrigger("training20230422", Connection = "EventHubConnectionAppSetting",ConsumerGroup = "nosqldb")] EventData[] events, ILogger log)
         {
-            nvc.Add("x-api-key", "43EFE991E8614CFB9EDECF1B0FDED37B");
+            nvc.Add("x-api-key", "43EFE991E8614CFB9EDECF1B0FDED37F");
             var exceptions = new List<Exception>();
 
 

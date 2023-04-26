@@ -1,0 +1,88 @@
+﻿{
+	"Id": "EventHubTrigger",
+	"LineOfBusinessProcessData": [
+		{
+			"Key": "object",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.ProcessData"
+		}
+	],
+	"Type": "",
+	"DataFlowProcess": [
+		{
+			"Key": "WriteJsonPayloadToStorage",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.BlobStorageProcess",
+			"Async": "false",
+			"IsEnable": "false",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "WriteToStorage",
+					"Value": "yes"
+				},
+				{
+					"Key": "BlobStorageConnectionString",
+					"Value": "AzureWebJobsStorage"
+				},
+				{
+					"Key": "container",
+					"Value": "eventhubmessages"
+				},
+				{
+					"Key": "folderName",
+					"Value": "jsonmessages"
+				},
+				{
+					"Key": "extension",
+					"Value": "json"
+				},
+				{
+					"Key": "ContentType",
+					"Value": "application/json"
+				}
+			]
+		},
+		{
+			"Key": "ConvertFromJsonToXml",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.MessageBuilderProcess",
+			"Async": "false",
+			"IsEnable": "true",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "ConvertJsonToXml",
+					"Value": "yes"
+				},
+				{
+					"Key": "RootElement",
+					"Value": "Football"
+				},
+				{
+					"Key": "messageformat",
+					"Value": "application/xml"
+				}
+			]
+		},
+		{
+			"Key": "ReceiveMessageFromServieBus",
+			"Type": "Xenhey.BPM.Core.Net6.Processes.ConnectToDBProcess",
+			"Async": "false",
+			"IsEnable": "true",
+			"DataFlowProcessParameters": [
+				{
+					"Key": "BulkInsertFromMessage",
+					"Value": "yes"
+				},
+				{
+					"Key": "DatabaseTableName",
+					"Value": "Football"
+				},
+				{
+					"Key": "ConnectionString",
+					"Value": "DataBaseConnection"
+				},
+				{
+					"Key": "datatable",
+					"Value": "Football"
+				}
+			]
+		}
+	]
+}

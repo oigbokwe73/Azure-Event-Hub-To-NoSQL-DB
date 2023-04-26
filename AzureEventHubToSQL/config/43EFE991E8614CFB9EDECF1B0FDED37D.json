@@ -68,7 +68,7 @@
         },
         {
           "Key": "EventHubName",
-          "Value": "training20230422"
+          "Value": "training20230426"
         },
         {
           "Key": "EventHubConnectionString",
