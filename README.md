@@ -37,13 +37,22 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |ContainerName|Description|
 |:----|:----|
 |config|Location for the configuration files|
-|pickup|Thes are files that are copied from the SFTP share and dropped in the pickup container |
+|pickup|Thes are files that are copied from the SFTP share and dropped in the pickup container. Used  |
 |processed|These are files the have been parsed and dropped in th processed container|
-|readymesagesforservicebus|XML Files that are ready to be placed on the service bus|
+|eventhubmessages|Hold message retrieved from eventhub |
 
 |Table|Description|
 |:----|:----|
 |csvbatchfiles|Track the CSV parsed files|
+|training[YYYYMMDD]|No SQL table to store uploaded CSV Files|
+
+
+> Create eventhub namespace and consumergroup.
+|Table|Description|
+|:----|:----|
+|training[YYYYMMDD]|consumer group name|
+
+
 
   
   
