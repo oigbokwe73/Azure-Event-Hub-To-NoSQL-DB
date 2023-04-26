@@ -17,6 +17,8 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |AppName| [APPLICATION NAME]| This is the name of the Function App. Used in log analytics|
 |StorageAcctName|[STORAGE ACCOUNT NAME]|Example  "AzureWebJobsStorage"|
 |EventHubConnectionAppSetting|[EVENT HUB CONNECTION STRING]|Example  "EventHubConnectionAppSetting"|
+|DatabaseConnection|[Data Base CONNECTION STRING]|Example  "DatabaseConnection"|
+
 
 
 > **Note:**  Look at the configuration file in the **Config** Folder and created a Table to record information.
@@ -30,41 +32,34 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |43EFE991E8614CFB9EDECF1B0FDED37A.json| **Upload File** Parse CSV file --> Write Batched Files To Storage|
 |43EFE991E8614CFB9EDECF1B0FDED37D.json| **Blob Trigger** Read Parsed CSV files --> Converts To JSON --> Sends To Event Hub|
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a NoSQL DB|
+|43EFE991E8614CFB9EDECF1B0FDED37E.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a Azure SQL DB|
 |43EFE991E8614CFB9EDECF1B0FDED37C.json| **Search** NoSQL DB for ingested records|
+|43EFE991E8614CFB9EDECF1B0FDED37F.json| **Search** Azure SQL DB for ingested records|
 
-## Upload Configuration to Storage
-Go to created storage Account.. Click On "Blob Service" 
-![image](https://user-images.githubusercontent.com/15838780/147958072-4a6058d2-d320-44a0-9d11-58449d527cd3.png)
+> Create the following blob containers and share in azure storage.
 
-Click on **"Container"**
-![image](https://user-images.githubusercontent.com/15838780/147958201-71df0f21-e4e8-46c0-93be-728f1dbc2a43.png)
-![image](https://user-images.githubusercontent.com/15838780/147963170-1a2f2a64-7ba2-44ce-9f5d-30d490529711.png)
+|ContainerName|Description|
+|:----|:----|
+|config|Location for the configuration files|
+|pickup|Thes are files that are copied from the SFTP share and dropped in the pickup container. Used  |
+|processed|These are files the have been parsed and dropped in th processed container|
+|eventhubmessages|Hold message retrieved from eventhub |
 
-
-## Upload CSV File
-
-|Key|Value|Comments|
-|:----|:----|:----|
-|ReadCsvAsStream|Yes| Required to parse the csv file while uploading|
-|messageformat|application/json OR application/xml| required|
-|FolderName||OPTIONAL:This is required for additonal XSL transformation |
-|FileName||OPTIONAL:This is required for additonal XSL transformation |
-|TableName|<AZURE TABLE NAME>| REQUIRED Create table add records|
-|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
-|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
+|Table|Description|
+|:----|:----|
+|csvbatchfiles|Track the CSV parsed files|
+|training[YYYYMMDD]|No SQL table to store uploaded CSV Files|
 
 
+> Create eventhub namespace and consumergroup.
 
-## Search Record
 
-|Key|Value|Comments|
-|:----|:----|:----|
-|SimpleTableSearch|Yes| Indicates the method in the process to use the API|
-|PartitionKey|<PROPERTY NAME >|OPTIONAL : Identity the  Field/Key in the JSON payload as a Partition Key|
-|QueryField|<SEARCH PROPERTY NAME>|Provide the search property name to be used in the search
-|DefaultResult| <CUSTOM MESSAGE> | OPTIONAL :  No  results return then a default message
-|TableName|<AZURE TABLE NAME>| REQUIRED : Create a Table |
-|Container|<CONTAINER NAME>|  REQUIRED : Create a container name eg "csvprocessed".|
+|Table|Description|
+|:----|:----|
+|training[YYYYMMDD]|consumer group name|
+
+
+
   
   
   ## Products
