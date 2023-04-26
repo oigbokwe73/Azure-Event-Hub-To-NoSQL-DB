@@ -47,8 +47,8 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |training[YYYYMMDD]|No SQL table to store uploaded CSV Files|
 
 
-
 > Create eventhub namespace and consumergroup.
+
 
 |Table|Description|
 |:----|:----|
