@@ -32,39 +32,19 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a NoSQL DB|
 |43EFE991E8614CFB9EDECF1B0FDED37C.json| **Search** NoSQL DB for ingested records|
 
-## Upload Configuration to Storage
-Go to created storage Account.. Click On "Blob Service" 
-![image](https://user-images.githubusercontent.com/15838780/147958072-4a6058d2-d320-44a0-9d11-58449d527cd3.png)
+> Create the following blob containers and share in azure storage.
 
-Click on **"Container"**
-![image](https://user-images.githubusercontent.com/15838780/147958201-71df0f21-e4e8-46c0-93be-728f1dbc2a43.png)
-![image](https://user-images.githubusercontent.com/15838780/147963170-1a2f2a64-7ba2-44ce-9f5d-30d490529711.png)
+|ContainerName|Description|
+|:----|:----|
+|config|Location for the configuration files|
+|pickup|Thes are files that are copied from the SFTP share and dropped in the pickup container |
+|processed|These are files the have been parsed and dropped in th processed container|
+|readymesagesforservicebus|XML Files that are ready to be placed on the service bus|
 
+|Table|Description|
+|:----|:----|
+|csvbatchfiles|Track the CSV parsed files|
 
-## Upload CSV File
-
-|Key|Value|Comments|
-|:----|:----|:----|
-|ReadCsvAsStream|Yes| Required to parse the csv file while uploading|
-|messageformat|application/json OR application/xml| required|
-|FolderName||OPTIONAL:This is required for additonal XSL transformation |
-|FileName||OPTIONAL:This is required for additonal XSL transformation |
-|TableName|<AZURE TABLE NAME>| REQUIRED Create table add records|
-|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
-|StorageAccount|<STORAGE ACCOUNT KEY>| Name of the  storage account key in AppSettings.|
-
-
-
-## Search Record
-
-|Key|Value|Comments|
-|:----|:----|:----|
-|SimpleTableSearch|Yes| Indicates the method in the process to use the API|
-|PartitionKey|<PROPERTY NAME >|OPTIONAL : Identity the  Field/Key in the JSON payload as a Partition Key|
-|QueryField|<SEARCH PROPERTY NAME>|Provide the search property name to be used in the search
-|DefaultResult| <CUSTOM MESSAGE> | OPTIONAL :  No  results return then a default message
-|TableName|<AZURE TABLE NAME>| REQUIRED : Create a Table |
-|Container|<CONTAINER NAME>|  REQUIRED : Create a container name eg "csvprocessed".|
   
   
   ## Products
