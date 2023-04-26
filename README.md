@@ -48,14 +48,6 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 
 
 
-> Create the following blob containers and share in azure storage.
-
-|Table|Description|
-|:----|:----|
-|training[YYYYMMDD]|consumer group name|
-
-
-
 > Create eventhub namespace and consumergroup.
 
 |Table|Description|
