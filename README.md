@@ -17,6 +17,8 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |AppName| [APPLICATION NAME]| This is the name of the Function App. Used in log analytics|
 |StorageAcctName|[STORAGE ACCOUNT NAME]|Example  "AzureWebJobsStorage"|
 |EventHubConnectionAppSetting|[EVENT HUB CONNECTION STRING]|Example  "EventHubConnectionAppSetting"|
+|DataBaseConnection|[Data Base CONNECTION STRING]|Example  "DataBaseConnection"|
+
 
 
 > **Note:**  Look at the configuration file in the **Config** Folder and created a Table to record information.
