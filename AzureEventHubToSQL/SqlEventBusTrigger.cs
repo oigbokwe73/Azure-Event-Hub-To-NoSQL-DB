@@ -18,7 +18,7 @@ namespace AzureEventHubToNoSQLDB
 
         private NameValueCollection nvc = new NameValueCollection();
         [FunctionName("SqlEventBusTrigger")]
-        public  async Task Run([EventHubTrigger("training20230422", Connection = "EventHubConnectionAppSetting",ConsumerGroup = "nosqldb")] EventData[] events, ILogger log)
+        public  async Task Run([EventHubTrigger("training20230426", Connection = "EventHubConnectionAppSetting",ConsumerGroup = "sqldb")] EventData[] events, ILogger log)
         {
             nvc.Add("x-api-key", "43EFE991E8614CFB9EDECF1B0FDED37F");
             var exceptions = new List<Exception>();
