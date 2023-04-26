@@ -17,7 +17,7 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |AppName| [APPLICATION NAME]| This is the name of the Function App. Used in log analytics|
 |StorageAcctName|[STORAGE ACCOUNT NAME]|Example  "AzureWebJobsStorage"|
 |EventHubConnectionAppSetting|[EVENT HUB CONNECTION STRING]|Example  "EventHubConnectionAppSetting"|
-|DataBaseConnection|[Data Base CONNECTION STRING]|Example  "DataBaseConnection"|
+|DatabaseConnection|[Data Base CONNECTION STRING]|Example  "DatabaseConnection"|
 
 
 
@@ -32,7 +32,9 @@ https://meetings.dialpad.com/getmp4/fe6535ae848411ecbdb47d69f386681c.mp4?amp_dev
 |43EFE991E8614CFB9EDECF1B0FDED37A.json| **Upload File** Parse CSV file --> Write Batched Files To Storage|
 |43EFE991E8614CFB9EDECF1B0FDED37D.json| **Blob Trigger** Read Parsed CSV files --> Converts To JSON --> Sends To Event Hub|
 |43EFE991E8614CFB9EDECF1B0FDED37B.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a NoSQL DB|
+|43EFE991E8614CFB9EDECF1B0FDED37E.json| **Event Hub Trigger** Read JSON Array from Event Hub --> Writes to a Azure SQL DB|
 |43EFE991E8614CFB9EDECF1B0FDED37C.json| **Search** NoSQL DB for ingested records|
+|43EFE991E8614CFB9EDECF1B0FDED37F.json| **Search** Azure SQL DB for ingested records|
 
 > Create the following blob containers and share in azure storage.
 
