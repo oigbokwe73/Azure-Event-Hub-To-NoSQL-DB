@@ -61,10 +61,10 @@
 			]
 		},
 		{
-			"Key": "ReceiveMessageFromEventHub",
+			"Key": "ReceiveMessageFronEventHubToSql",
 			"Type": "Xenhey.BPM.Core.Net6.Processes.ConnectToDBProcess",
 			"Async": "false",
-			"IsEnable": "true",
+			"IsEnable": "true", 
 			"DataFlowProcessParameters": [
 				{
 					"Key": "BulkInsertFromMessage",
@@ -76,7 +76,7 @@
 				},
 				{
 					"Key": "ConnectionString",
-					"Value": "DataBaseConnection"
+					"Value": "DatabaseConnection"
 				},
 				{
 					"Key": "datatable",
