@@ -6,7 +6,7 @@
 
 ## Training video
 
-[Session Video](sp=r&st=2023-04-27T14:22:18Z&se=2024-04-27T22:22:18Z&spr=https&sv=2021-12-02&sr=b&sig=VruF8LdhBhSFTjdMSsObgWG%2FWHnDzlK%2FYU11WtsNPbQ%3D)
+[Session Video](https://pbsdatastore.blob.core.windows.net/training/TrainingInfo/video1530649826.mp4?sp=r&st=2023-04-27T14:22:18Z&se=2024-04-27T22:22:18Z&spr=https&sv=2021-12-02&sr=b&sig=VruF8LdhBhSFTjdMSsObgWG%2FWHnDzlK%2FYU11WtsNPbQ%3D)
 
 ## Appplication Setting 
 
