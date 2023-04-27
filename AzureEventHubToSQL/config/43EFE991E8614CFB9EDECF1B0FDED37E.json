@@ -61,7 +61,7 @@
 			]
 		},
 		{
-			"Key": "ReceiveMessageFromServieBus",
+			"Key": "ReceiveMessageFromEventHub",
 			"Type": "Xenhey.BPM.Core.Net6.Processes.ConnectToDBProcess",
 			"Async": "false",
 			"IsEnable": "true",
